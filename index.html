@@ -2303,7 +2303,7 @@
     <div class="pull-switch" id="lights-toggle" role="button" tabindex="0" aria-pressed="false" aria-label="Pull the switch to turn the fairy lights on or off">
       <div class="pull-cord"></div>
       <div class="pull-knob"></div>
-      <span class="pull-hint">Pull Me</span>
+      <span class="pull-hint">Tap Me</span>
     </div>
   </div>
 
@@ -3369,7 +3369,7 @@ function setFairyLights(on) {
     p.classList.toggle('lights-off', !on);
   });
   lightsToggleEl.setAttribute('aria-pressed', on ? 'true' : 'false');
-  if (pullHintEl) pullHintEl.textContent = on ? 'Turn Off' : 'Pull Me';
+  if (pullHintEl) pullHintEl.textContent = on ? 'Turn Off' : 'Tap Me';
 }
 
 function playPullAnimation() {
