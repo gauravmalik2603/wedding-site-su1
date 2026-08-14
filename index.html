@@ -3479,6 +3479,7 @@ async function renderNotes() {
   const { data, error } = await sbClient
     .from('wishes')
     .select('name, message, created_at')
+    .eq('host_side', 'ladki wale')
     .order('created_at', { ascending: false });
 
   if (error) {
@@ -3537,6 +3538,7 @@ async function loadPublicNotes() {
     const { data, error } = await sbClient
       .from('wishes')
       .select('id, name, message, public, created_at')
+      .eq('host_side', 'ladki wale')
       .order('created_at', { ascending: false });
     if (error) {
       console.error('Supabase wishes fetch failed for public board:', error);
