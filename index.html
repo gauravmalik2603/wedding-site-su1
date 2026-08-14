@@ -3417,7 +3417,8 @@ document.getElementById('rsvp-btn').addEventListener('click', async function () 
     arrive_time : document.getElementById('f-arrive-time').value || null,
     travel      : document.getElementById('f-travel').value || null,
     diet        : document.getElementById('f-diet').value || null,
-    song        : document.getElementById('f-song').value || null
+    song        : document.getElementById('f-song').value || null,
+    host_side  : 'ladki wale'
   };
 
   let saved = false;
@@ -3581,7 +3582,7 @@ document.getElementById('notes-btn').addEventListener('click', async function ha
   let saved = false;
 
   if (sbClient) {
-    const { error } = await sbClient.from('wishes').insert({ name: noteName, message: msg, public: isPublic });
+    const { error } = await sbClient.from('wishes').insert({ name: noteName, message: msg, public: isPublic, host_side: 'ladki wale' });
     if (error) {
       console.error('Supabase wishes insert failed, falling back to local storage:', error);
     } else {
@@ -3591,7 +3592,7 @@ document.getElementById('notes-btn').addEventListener('click', async function ha
 
   if (!saved) {
     const notes = JSON.parse(localStorage.getItem('gs-notes') || '[]');
-    notes.unshift({ name: noteName, msg, public: isPublic, ts: new Date().toISOString() });
+    notes.unshift({ name: noteName, msg, public: isPublic, host_side: 'ladki wale', ts: new Date().toISOString() });
     localStorage.setItem('gs-notes', JSON.stringify(notes));
   }
 
